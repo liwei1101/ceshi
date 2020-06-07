@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>学生管理</title>
+    <style>
+        table {
+            text-align: center;
+            width: 500px;
+            height: 200px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-family: Futura, Arial, sans-serif;
+        }
+
+        th,td {
+            padding: .65em;
+        }
+
+        th {
+            background: rgb(85, 85, 85) ;
+            color: #fff;
+        }
+
+        /* tbody tr:hover {
+            background: linear-gradient(#fff,#aaa);
+            font-size: 17px;
+        } */
+
+        tbody tr:nth-child(odd) {
+            background: rgb(93, 218, 250);
+        }
+
+        th:first-child {
+            border-radius: 9px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 9px 0 0;
+        }
+
+        tr:last-child td:first-child {
+            border-radius: 0 0 0 9px;
+        }
+
+        tr:last-child td:last-child {
+            border-radius: 0 0 9px 0;
+        }
+
+        h1,h3 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>学生列表(ajax去请求数据，浏览器自己渲染数据)</h1>
+    <h3><a href="/add">[增加新学生]</a></h3>
+    <h3><a href="/delete">[删除学生]</a></h3>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>籍贯</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+        <% for(var i=0; i<arr.length; i++){ %>
+        <tr>
+            <td><%= arr[i].name %></td>
+            <td><%= arr[i].age %></td>
+            <td><%= arr[i].sex%></td>
+            <td><%= arr[i].place%></td>
+        </tr>
+        <% } %>
+    </tbody>
+    </table>
+</body>
+<script type="text/template" id="mytemplate">
+   
+</script>
+<script src="/js/jquery1.11.3.js"></script>
+<script src="/js/underscore.min.js"></script>
+</script>
+
+</html> 

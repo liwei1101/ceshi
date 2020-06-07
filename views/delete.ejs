@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>删除学生</title>
+</head>
+
+<body>
+    <h1 style="display: inline-block;">删除学生 &nbsp;&nbsp;&nbsp;&nbsp;</h1><a href="/allStudent">返回查看所有学生</a>
+    <div>
+        <ul>
+            <li>
+                <label for="">请输入要删除学生的姓名：</label>
+                <input type="text" name="uname" id="uname">
+            </li>
+            <li>
+                <input id="delete" type="button" value="删除" id="btn">
+            </li>
+        </ul> 
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    $("#delete").click(function () {
+        $.post("/delete", { //做post的工作
+            "name":$("#uname").val()
+         }, function (data) {  // data是服务器向客户端返回的数据info
+            if(data == "1"){
+                alert("删除学生成功了~")
+            }else{
+                alert("删除学生失败了~")
+            }
+        });
+    });
+</script>
+
+</html>
